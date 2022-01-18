@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100px;
+    background-color: aqua;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+#title {
+    line-height: 100px;
+    padding-left: 50px;
+
+}
+
+#user-choice {
+    line-height: 100px;
+    padding-right: 50px;
+}
+
+#btn-send {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+}
+
+#btn-cancel {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+#main-page {
+    margin-bottom: 100px;
+}
+
+#grid {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid .cells-easy {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
+}
+
+#grid .cells-medium {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
+}
+
+#grid .cells-hard {
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
+}
+
+.color-blue {
+    background-color: lightblue;
+}
+
+.clicked {
+    background-color: red;
+}
