@@ -64,6 +64,15 @@ function start() {
         return bombs;
     }
 
+    // Creo la griglia
+    const generateGrid = (cellsNumber, cellsPerRow, bombs) => {
+        for (let i = 1; i <= cellsNumber; i++) {
+            const cell = createCell(i, cellsPerRow);
+            cell.addEventListener('click', onCellClick);
+            grid.appendChild(cell);
+        }
+    }
+
     // Creo la cella
     function createCell(cellNumber, cellsPerRow) {
         const cell = document.createElement("div");
@@ -74,6 +83,24 @@ function start() {
         cell.style.height = wh;
         cell.style.width = wh;
         return cell;
+    }
+
+    // Generare l'evento al click
+    function onCellClick(event) {
+        const cell = event.target;
+        cell.removeEventListener("click", onCellClick);
+
+        let number = parseInt(cell.id);
+
+        if (bombs.includes(number)) {
+            gameOver(bombs, attempts, true);
+        } else {
+            cell.classList.add("safe")
+            attempts++;
+            if (attempts === maxAttempts) {
+                gameOver(bombs, attempts, false);
+            }
+        }
     }
     
     // Fine partita
@@ -92,9 +119,6 @@ function start() {
         const messageText = hasLost ? `HAI PERSO, RIPROVA (questo è il tuo punteggio ${attempts})` : `HAI VINTO!!!!!!!!`
         message.innerText = messageText;
         grid.appendChild(message);
-
-
-
     }
 
     const showBoms = (bombs) => {
