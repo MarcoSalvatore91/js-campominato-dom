@@ -13,12 +13,41 @@ BONUS:
 2- quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle
 */
 
-//* FUNZIONI DA UTILIZZARE
+//* Funzioni
 
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 
-// RECUPERO LA GRIGLIA
+// Creo delle costanti
 const select = document.getElementById("choices");
 const grid = document.getElementById("grid");
 const button = document.getElementById("start");
+
+function start() {
+    // Cambio il tasto del bottone
+    button.innerText = 'RICOMINCIA'
+
+    grid.innerHTML = '';
+
+    // Genero una griglia a seconda della difficoltà 
+    let attempts = 0;
+    const totalBombs = 16;
+
+    let columns;
+
+    switch (select.value) {
+        case "normal":
+            columns = 9;
+            break;
+        case "hard":
+            columns = 7;
+            break;
+        default:
+            columns = 10;
+            break;
+    }
+
+    const totalCells = columns * columns;
+
+    const maxAttempts = totalCells - totalBombs;
+    let bombs = [];
