@@ -28,16 +28,10 @@ body {
     padding-right: 50px;
 }
 
-#btn-send {
+#start {
     position: absolute;
     top: 40px;
     right: 100px;
-}
-
-#btn-cancel {
-    position: absolute;
-    top: 40px;
-    right: 40px;
 }
 
 #main-page {
@@ -52,34 +46,15 @@ body {
     flex-wrap: wrap;
 }
 
-#grid .cells-easy {
-    height: calc(100% / 10);
-    width: calc(100% / 10);
-    border: 1px solid red;
+#grid .cell {
+    border: 1px solid black;
     cursor: pointer;
-    background-color: white;
 }
 
-#grid .cells-medium {
-    height: calc(100% / 9);
-    width: calc(100% / 9);
-    border: 1px solid red;
-    cursor: pointer;
-    background-color: white;
-}
-
-#grid .cells-hard {
-    height: calc(100% / 7);
-    width: calc(100% / 7);
-    border: 1px solid red;
-    cursor: pointer;
-    background-color: white;
-}
-
-.color-blue {
+.safe {
     background-color: lightblue;
 }
 
-.clicked {
+.bomb {
     background-color: red;
 }
